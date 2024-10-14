@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class WebSocketManager {
@@ -9,7 +10,9 @@ class WebSocketManager {
     try {
       await platform.invokeMethod('startWebSocketService');
     } on PlatformException catch (e) {
-      print("Failed to start WebSocket service: ${e.message}");
+      if (kDebugMode) {
+        print("Failed to start WebSocket service: ${e.message}");
+      }
     }
   }
 
@@ -18,7 +21,9 @@ class WebSocketManager {
     try {
       await platform.invokeMethod('stopWebSocketService');
     } on PlatformException catch (e) {
-      print("Failed to stop WebSocket service: ${e.message}");
+      if (kDebugMode) {
+        print("Failed to stop WebSocket service: ${e.message}");
+      }
     }
   }
 }

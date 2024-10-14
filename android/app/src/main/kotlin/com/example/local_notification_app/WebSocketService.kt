@@ -76,7 +76,9 @@ class WebSocketService : Service() {
         }
 
         override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
-            // Handle WebSocket closure
+            // Handle WebSocket closure 
+
+
           //  showNotification("WebSocket closed: $reason")
         }
 
@@ -90,7 +92,7 @@ class WebSocketService : Service() {
         // Create an explicit intent for the activity
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        // Use FLAG_IMMUTABLE for the PendingIntent
+       
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         return Notification.Builder(this, CHANNEL_ID)
